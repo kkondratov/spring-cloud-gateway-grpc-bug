@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          use-insecure-trust-manager: true
+      routes:
+        - id: grpc-route
+          uri: https://localhost:8082
+          predicates:
+            - Header=Content-Type, application/grpc
